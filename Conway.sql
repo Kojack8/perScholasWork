@@ -13,7 +13,7 @@
 
 4.  SELECT *
         FROM payments
-        WHERE paymentDate > '2005-01-01'
+        WHERE paymentDate >= '2005-01-01'
         ORDER BY paymentDate asc;
 
 5.  SELECT lastName, firstName, email, jobTitle
