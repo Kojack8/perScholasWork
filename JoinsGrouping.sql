@@ -5,9 +5,10 @@ SELECT customerName AS 'Customer Name', CONCAT(e.lastName, ', ', e.firstName) AS
   ORDER by customerName;
 
 -- 2.
-SELECT productName AS 'Product Name', o.quantityOrdered AS 'Total # Ordered', o.quantityOrdered * o.priceEach AS 'Total Sale'
+SELECT productName AS 'Product Name', SUM(o.quantityOrdered) AS 'Total # Ordered', o.quantityOrdered * o.priceEach AS 'Total Sale'
   FROM products p
   JOIN orderdetails o ON p.productCode = o.productCode
+  GROUP BY productName
   ORDER BY o.quantityOrdered * o.priceEach DESC;
 
 -- 3.
