@@ -29,7 +29,8 @@ SELECT CONCAT(e.lastName, ', ', e.firstName) AS 'Sales Rep', count(quantityOrder
     JOIN orders o ON o.orderNumber = od.orderNumber
     JOIN customers c ON c.customerNumber = o.customerNumber
     JOIN employees e ON e.employeeNumber = c.salesRepEmployeeNumber
-    GROUP BY e.lastName;
+    GROUP BY e.lastName
+    ORDER BY SUM(od.quantityOrdered * od.priceEach) DESC;
 
 -- 6.
 SELECT MONTHNAME(paymentDate) AS 'Month', YEAR(paymentDate) AS 'Year', FORMAT(SUM(amount), 2) AS 'Payments Recieved'
