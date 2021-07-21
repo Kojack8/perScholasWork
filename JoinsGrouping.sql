@@ -24,8 +24,7 @@ SELECT productLine as 'Product Line', SUM(o.quantityOrdered) AS '# Sold'
   ORDER BY SUM(o.quantityOrdered) desc;
   
 -- 5.
-SELECT 
-    CONCAT(e.lastName, ', ', e.firstName) AS 'Sales Rep', count(quantityOrdered) AS '# Orders', SUM(od.quantityOrdered * od.priceEach) AS 'Total Sales'
+SELECT CONCAT(e.lastName, ', ', e.firstName) AS 'Sales Rep', count(quantityOrdered) AS '# Orders', SUM(od.quantityOrdered * od.priceEach) AS 'Total Sales'
     FROM orderdetails od
     JOIN orders o ON o.orderNumber = od.orderNumber
     JOIN customers c ON c.customerNumber = o.customerNumber
